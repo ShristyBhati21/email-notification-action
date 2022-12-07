@@ -1,16 +1,33 @@
 # action.yml
 name: 'Hello World'
 description: 'Greet someone and record the time'
-#inputs:
-#  who-to-greet:  # id of input
-#    description: 'Who to greet'
-#    required: true
-#    default: 'World'
-#outputs:
-#  time: # id of output
-#    description: 'The time we greeted you'
+inputs:
+  from_email:
+    description: 'sender of the email'
+    required: true
+  to_email:
+    description: 'receiver of the email'
+    required: true
+  subject:
+    description: 'subject of the email'
+    required: true
+  authorised_username:
+    description: 'authorised username for SMTP authentication'
+    required: true
+  authorised_password:
+    description: 'authorised password for SMTP authentication'
+    required: true
+  message:
+    description: 'message body of the email address'
+    required: true
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
-#  args:
-#    - ${{ inputs.who-to-greet }}
+  args:
+    - ${{ inputs.from_email }}
+    - ${{ inputs.to_email }}
+    - ${{ input.subject }}
+    - ${{ inputs.authorised_username }}
+    - ${{ inputs.authorised_password }}
+    - ${{ inputs.message }}

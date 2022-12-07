@@ -1,11 +1,11 @@
 #!/bin/sh -l
 
-sendemail -f "rathoredigpalsingh@gmail.com" \
-          -t "rathoredigpalsingh@gmail.com" \
+sendemail -f ${INPUT_FROM_EMAIL} \
+          -t ${INPUT_TO_EMAIL} \
           -s "smtp.gmail.com:587" \
           -v -v \
           -o tls=yes \
-          -u "Test" \
-          -xu "bhati.shristy@gmail.com" \
-          -xp "ilnhkebrjbfuawkh" \
-          -m "this is the test text"
+          -u ${INPUT_SUBJECT} \
+          -xu ${INPUT_AUTHORISED_USERNAME} \
+          -xp ${INPUT_AUTHORISED_PASSWORD} \
+          -m ${INPUT_MESSAGE}
