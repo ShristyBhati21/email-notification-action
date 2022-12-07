@@ -1,5 +1,11 @@
 # Container image that runs your code
-FROM alpine:3.10
+FROM ubuntu:latest
+
+RUN apt-get update
+RUN apt-get install libio-socket-ssl-perl -y
+RUN apt-get install libnet-ssleay-perl -y
+RUN apt-get install sendemail -y
+RUN apt-get install ca-certificates -y
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh

@@ -1,7 +1,11 @@
 #!/bin/sh -l
 
-subject="mail subject"
-body="Hello World"
-from="bhati.shristy@gmail.com"
-to="rathoredigpalsingh@gmail.com"
-echo -e "Subject:${subject}\n${body}" | sendmail -f "${from}" -t "${to}"
+sendemail -f "rathoredigpalsingh@gmail.com" \
+          -t "rathoredigpalsingh@gmail.com" \
+          -s "smtp.gmail.com:587" \
+          -v -v \
+          -o tls=yes \
+          -u "Test" \
+          -xu "bhati.shristy@gmail.com" \
+          -xp "ilnhkebrjbfuawkh" \
+          -m "this is the test text"
