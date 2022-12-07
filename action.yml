@@ -27,7 +27,7 @@ runs:
   args:
     - ${{ inputs.from_email }}
     - ${{ inputs.to_email }}
-    - ${{ input.subject }}
+    - ${{ inputs.subject }}
     - ${{ inputs.authorised_username }}
     - ${{ inputs.authorised_password }}
     - ${{ inputs.message }}
