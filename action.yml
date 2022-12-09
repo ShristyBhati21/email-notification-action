@@ -14,10 +14,13 @@ inputs:
   authorised_username:
     description: 'authorised username for SMTP authentication'
     required: true
-  authorised_password:
-    description: 'authorised password for SMTP authentication'
+  repository:
+    description: 'message body of the email address'
     required: true
-  message:
+  branch:
+    description: 'message body of the email address'
+    required: true
+  status:
     description: 'message body of the email address'
     required: true
 
@@ -29,5 +32,7 @@ runs:
     - ${{ inputs.to_email }}
     - ${{ inputs.subject }}
     - ${{ inputs.authorised_username }}
-    - ${{ inputs.authorised_password }}
-    - ${{ inputs.message }}
+    - ${{ secrets.GMAIL_API }}
+    - ${{ inputs.repository }}
+    - ${{ inputs.branch }}
+    - ${{ inputs.status }}
