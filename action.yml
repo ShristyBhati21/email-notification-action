@@ -19,10 +19,8 @@ inputs:
     required: true
 
 runs:
-  using: 'docker build --build arg PASSWORD=${{ secrets.GITHUB_API }}'
+  using: 'docker'
   image: 'Dockerfile'
-  env:
-    PASSWORD: ${{ secrets.GITHUB_API }}
   args:
     - ${{ inputs.from_email }}
     - ${{ inputs.to_email }}
