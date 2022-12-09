@@ -1,5 +1,3 @@
-#!/bin/sh -l
-
 
 set -x
 
@@ -9,6 +7,10 @@ echo "JOB_STATUS: ${INPUT_JOB_STATUS}"
 if [[ "${INPUT_JOB_STATUS}" == 'success' ]]; then
   export INPUT_SLACK_STATUS_EMOJI=':white_check_mark::white_check_mark::white_check_mark:'
   export INPUT_DISPLAY_IMAGE_URL='https://www.gifcen.com/wp-content/uploads/2022/02/congratulations-gif-8.gif'
+
+elif [[ "${INPUT_JOB_STATUS}" == 'failure' ]]; then
+  export INPUT_SLACK_STATUS_EMOJI=':rotating_light::rotating_light::rotating_light:'
+  export INPUT_DISPLAY_IMAGE_URL='https://c.tenor.com/-kZOB16tELEAAAAC/this-is-fine-fire.gif'
 
 fi # else cancelled
 
