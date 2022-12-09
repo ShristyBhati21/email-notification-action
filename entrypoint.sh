@@ -8,4 +8,5 @@ sendemail -f ${INPUT_FROM_EMAIL} \
           -u ${INPUT_SUBJECT} \
           -xu ${INPUT_AUTHORISED_USERNAME} \
           -xp ${INPUT_AUTHORISED_PASSWORD} \
-          -m ${INPUT_MESSAGE}
+          -o message-content-type=json \
+          -o message-file=/files/message.json
