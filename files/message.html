@@ -10,14 +10,14 @@
 
 <div class="jumbotron text-center">
     <h1>Build Report</h1>
-    <p> <img src="https://media.giphy.com/media/du3J3cXyzhj75IOgvA/giphy.gif" alt="W3Schools.com" width="30" height="30">repository : <a href="https://github.com/ShristyBhati21/testWorkflow">testWorkflow</a></p>
+    <p> <img src="$INPUT_DISPLAY_IMAGE_URL" alt="W3Schools.com" width="30" height="30">repository : <a href="https://github.com/ShristyBhati21/testWorkflow">testWorkflow</a></p>
 </div>
 
 <div class="container">
     <div class="row">
         <div class="col-sm-5">
             <h3> <b> Result :</b> </h3>
-            <p>The build status for the branch <mark> ${{ github.ref_name }} </mark> of repository <mark> <$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID|$GITHUB_REPOSITORY> </mark> is ${{ job.status }}</p>
+            <p>'$INPUT_SLACK_STATUS_EMOJI<$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID|$GITHUB_REPOSITORY>$INPUT_SLACK_STATUS_EMOJI\nBranch: <$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/tree/$GITHUB_REF_NAME|$GITHUB_REF_NAME>\nBuild: #$GITHUB_RUN_NUMBER\nBy: $GITHUB_ACTOR\n<$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/commit/$GITHUB_SHA|commit>'</p>
         </div>
         <div class="col-sm-1">
             <img src="https://media.giphy.com/media/GS1VR900wmhJ6/giphy.gif" alt="W3Schools.com" width="104" height="142">

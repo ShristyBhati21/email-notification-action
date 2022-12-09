@@ -17,9 +17,11 @@ inputs:
   authorised_password:
     description: 'authorised password for SMTP authentication'
     required: true
-    default: ${{ System.env("PASSWORD") }}
   message:
     description: 'message body of the email address'
+    required: true
+  job_status:
+    description: 'the success status of the job in the pipeline'
     required: true
 
 runs:
@@ -32,3 +34,4 @@ runs:
     - ${{ inputs.authorised_username }}
     - ${{ inputs.authorised_password }}
     - ${{ inputs.message }}
+    - ${{ inputs.job_status }}
