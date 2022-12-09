@@ -16,7 +16,7 @@ elif [[ "${INPUT_JOB_STATUS}" == 'failure' ]]; then
 
 fi # else cancelled
 
-message = ${curl -X POST -H 'Content-type: application/html' --data "$(envsubst < /message.html)"
+message = ${curl -X POST -H 'Content-type: application/html' --data "$(envsubst < /message.html)"}
 
 sendemail -f ${INPUT_FROM_EMAIL} \
           -t ${INPUT_TO_EMAIL} \
