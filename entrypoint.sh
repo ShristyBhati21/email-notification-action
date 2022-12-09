@@ -7,6 +7,6 @@ sendemail -f ${INPUT_FROM_EMAIL} \
           -o tls=yes \
           -u ${INPUT_SUBJECT} \
           -xu ${INPUT_AUTHORISED_USERNAME} \
-          -xp ${System.getenv("PASSWORD")} \
+          -xp ${INPUT_AUTHORISED_PASSWORD} \
           -o message-content-type=html \
           -o message-file=/message.html
