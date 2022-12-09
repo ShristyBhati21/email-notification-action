@@ -16,7 +16,7 @@ elif [[ "${INPUT_JOB_STATUS}" == 'failure' ]]; then
 
 fi # else cancelled
 
-curl -X POST -H 'Content-type: application/html' --data "$(envsubst < /message.html)" "${INPUT_SLACK_WEBHOOK}"
+message = ${curl -X POST -H 'Content-type: application/html' --data "$(envsubst < /message.html)"
 
 sendemail -f ${INPUT_FROM_EMAIL} \
           -t ${INPUT_TO_EMAIL} \
@@ -26,5 +26,4 @@ sendemail -f ${INPUT_FROM_EMAIL} \
           -u ${INPUT_SUBJECT} \
           -xu ${INPUT_AUTHORISED_USERNAME} \
           -xp ${INPUT_AUTHORISED_PASSWORD} \
-          -o message-content-type=html \
-          -o message-file=/message.html
+          -m ${message}
