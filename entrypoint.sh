@@ -18,7 +18,7 @@ then
 
 fi # else cancelled
 
-message = ${curl -X POST -H 'Content-type: application/html' --data "$(envsubst < /message.html)"}
+envsubst < /message.html > /newMessage.html
 
 sendemail -f ${INPUT_FROM_EMAIL} \
           -t ${INPUT_TO_EMAIL} \
@@ -28,4 +28,5 @@ sendemail -f ${INPUT_FROM_EMAIL} \
           -u ${INPUT_SUBJECT} \
           -xu ${INPUT_AUTHORISED_USERNAME} \
           -xp ${INPUT_AUTHORISED_PASSWORD} \
-          -m ${message}
+          -o message-content-type=html \
+          -o message-file=/newMessage.html
