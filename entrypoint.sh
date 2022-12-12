@@ -19,7 +19,7 @@ then
 fi # else cancelled
 
 export INPUT_DISPLAY_IMAGE_URL='https://www.gifcen.com/wp-content/uploads/2022/02/congratulations-gif-8.gif'
-envsubst < /message.json > /newMessage.json
+envsubst < /message.html > /newMessage.html
 
 sendemail -f ${INPUT_FROM_EMAIL} \
           -t ${INPUT_TO_EMAIL} \
@@ -29,5 +29,5 @@ sendemail -f ${INPUT_FROM_EMAIL} \
           -u ${INPUT_SUBJECT} \
           -xu ${INPUT_AUTHORISED_USERNAME} \
           -xp ${INPUT_AUTHORISED_PASSWORD} \
-          -o message-content-type=other \
-          -o message-file=/newMessage.json
+          -o message-content-type=html \
+          -o message-file=/newMessage.html
