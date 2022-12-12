@@ -6,25 +6,23 @@ set -x
 # curl request for the slack webhook webhook: curl POST, headers, data (slack json obj), slack webhook
 if [ "${INPUT_JOB_STATUS}" = 'success' ]
 then
-  export INPUT_SLACK_STATUS_EMOJI=':white_check_mark::white_check_mark::white_check_mark:'
-  export INPUT_DISPLAY_IMAGE_URL='https://www.gifcen.com/wp-content/uploads/2022/02/congratulations-gif-8.gif'
+  export INPUT_DISPLAY_IMAGE_URL='https://media.giphy.com/media/ekwEeLxb7G4DW44YaK/giphy.gif'
 
 elif [ "${INPUT_JOB_STATUS}" = 'failure' ]
 then
-  export INPUT_SLACK_STATUS_EMOJI=':rotating_light::rotating_light::rotating_light:'
-  export INPUT_DISPLAY_IMAGE_URL='https://c.tenor.com/-kZOB16tELEAAAAC/this-is-fine-fire.gif'
+  export INPUT_DISPLAY_IMAGE_URL='https://media.giphy.com/media/xUNd9TXtXVONOxbQ1W/giphy.gif'
 
 fi # else cancelled
 
-envsubst < /message.html > /newMessage.html
+envsubst < /message_template.html > /message.html
 
-sendemail -f ${INPUT_FROM_EMAIL} \
+sendemail -f $GITHUB_ACTOR \
           -t ${INPUT_TO_EMAIL} \
           -s "smtp.gmail.com:587" \
           -v -v \
           -o tls=yes \
-          -u '\033[1m${INPUT_JOB_STATUS}\033[0m' : ${INPUT_SUBJECT} \
+          -u ${INPUT_JOB_STATUS} : ${INPUT_SUBJECT} \
           -xu ${INPUT_AUTHORISED_USERNAME} \
           -xp ${INPUT_AUTHORISED_PASSWORD} \
           -o message-content-type=html \
-          -o message-file=/newMessage.html
+          -o message-file=/message.html
