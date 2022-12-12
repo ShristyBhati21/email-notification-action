@@ -23,7 +23,7 @@ sendemail -f ${INPUT_FROM_EMAIL} \
           -s "smtp.gmail.com:587" \
           -v -v \
           -o tls=yes \
-          -u ${INPUT_SUBJECT} \
+          -u ${INPUT_JOB_STATUS} : ${INPUT_SUBJECT} \
           -xu ${INPUT_AUTHORISED_USERNAME} \
           -xp ${INPUT_AUTHORISED_PASSWORD} \
           -o message-content-type=html \
