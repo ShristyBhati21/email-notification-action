@@ -21,15 +21,13 @@ fi # else cancelled
 export INPUT_DISPLAY_IMAGE_URL='https://www.gifcen.com/wp-content/uploads/2022/02/congratulations-gif-8.gif'
 envsubst < /message.html > /newMessage.html
 
-sendemail -f "bhati.shristy@gmail.com" \
-          -t "srishty.bhati.rathore@gmail.com" \
+sendemail -f ${INPUT_FROM_EMAIL} \
+          -t ${INPUT_TO_EMAIL} \
           -s "smtp.gmail.com:587" \
           -v -v \
           -o tls=yes \
-          -u "test" \
-          -xu "bhati.shristy@gmail.com" \
-          -xp "ilnhkebrjbfuawkh" \
-          -o message-content-type=other \
+          -u ${INPUT_SUBJECT} \
+          -xu ${INPUT_AUTHORISED_USERNAME} \
+          -xp ${INPUT_AUTHORISED_PASSWORD} \
+          -o message-content-type=html \
           -o message-file=/newMessage.html
-
-sleep 120
