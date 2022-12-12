@@ -16,7 +16,7 @@ fi # else cancelled
 
 envsubst < /message_template.html > /message.html
 
-sendemail -f $GITHUB_ACTOR \
+sendemail -f ${INPUT_FROM_EMAIL} \
           -t ${INPUT_TO_EMAIL} \
           -s "smtp.gmail.com:587" \
           -v -v \
