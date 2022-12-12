@@ -3,8 +3,6 @@
 
 set -x
 
-INPUT_JOB_STATUS='success'
-
 # curl request for the slack webhook webhook: curl POST, headers, data (slack json obj), slack webhook
 if [ "${INPUT_JOB_STATUS}" = 'success' ]
 then
