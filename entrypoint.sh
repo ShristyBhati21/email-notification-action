@@ -18,7 +18,6 @@ then
 
 fi # else cancelled
 
-export INPUT_DISPLAY_IMAGE_URL='https://www.gifcen.com/wp-content/uploads/2022/02/congratulations-gif-8.gif'
 envsubst < /message.html > /newMessage.html
 
 sendemail -f ${INPUT_FROM_EMAIL} \
