@@ -10,17 +10,17 @@
 
 <div class="jumbotron text-center">
     <h1>Build Report</h1>
-    <p> <img src="https://media.giphy.com/media/du3J3cXyzhj75IOgvA/giphy.gif" alt="W3Schools.com" width="30" height="30">repository : <a href='$GITHUB_SERVER_URL/$GITHUB_REPOSITORY'>$GITHUB_REPOSITORY</a></p>
+    <p> <img src="https://media.giphy.com/media/du3J3cXyzhj75IOgvA/giphy.gif" width="30" height="30">repository : <a href='$GITHUB_SERVER_URL/$GITHUB_REPOSITORY'>$GITHUB_REPOSITORY</a></p>
 </div>
 
 <div class="container">
     <div class="row">
         <div class="col-sm-5">
             <h3> <b> Result :</b> </h3>
-            <p><a href='$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID'> $GITHUB_REPOSITORY </a> <br> Branch: <a href='$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/tree/$GITHUB_REF_NAME'>$GITHUB_REF_NAME</a> <br> Build: #$GITHUB_RUN_NUMBER <br> By: $GITHUB_ACTOR <br> <a href='$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/commit/$GITHUB_SHA'>commit</a></p>
+            <p><a href='$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID'> Commit Action </a> <br> Branch: <a href='$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/tree/$GITHUB_REF_NAME'>$GITHUB_REF_NAME</a> <br> Build: #$GITHUB_RUN_NUMBER <br> By: $GITHUB_ACTOR <br> <a href='$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/commit/$GITHUB_SHA'>commit</a></p>
         </div>
         <div class="col-sm-1">
-            <img src="https://media.giphy.com/media/GS1VR900wmhJ6/giphy.gif" alt="W3Schools.com" width="104" height="142">
+            <img src=$INPUT_DISPLAY_IMAGE_URL width="104" height="142">
         </div>
     </div>
 </div>
