@@ -13,7 +13,7 @@ RUN apk add curl gettext \
 
 WORKDIR /
 COPY files/message.json /message.json
-COPY /entrypoint.sh /entrypoint.sh
+COPY/files/entrypoint.sh /entrypoint.sh
 
 CMD chmod +x /entrypoint.sh
 
