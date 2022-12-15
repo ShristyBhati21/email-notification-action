@@ -17,7 +17,7 @@
     <div class="row">
         <div class="col-sm-5">
             <h3> <b> Result :</b> </h3>
-            <p><a href='$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID'> Commit Action </a> <br> Branch: <a href='$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/tree/$GITHUB_REF_NAME'>$GITHUB_REF_NAME</a> <br> Build: #$GITHUB_RUN_NUMBER <br> By: $GITHUB_ACTOR <br> <a href='$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/commit/$GITHUB_SHA'>commit</a> <br> Tag : $INPUT_TAG_VERSION</p>
+            <p><a href='$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID'> Commit Action </a> <br> Branch: <a href='$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/tree/$GITHUB_REF_NAME'>$GITHUB_REF_NAME</a> <br> Build: #$GITHUB_RUN_NUMBER <br> By: $GITHUB_ACTOR <br> <a href='$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/commit/$GITHUB_SHA'>commit</a> <br> Tag : <a href='$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/releases/tag/$INPUT_TAG_VERSION'>$INPUT_TAG_VERSION</a></p>
         </div>
         <div class="col-sm-1">
             <img src=$INPUT_DISPLAY_IMAGE_URL width="104" height="142">
