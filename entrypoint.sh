@@ -13,7 +13,7 @@ then
   export INPUT_DISPLAY_IMAGE_URL='https://media.giphy.com/media/xUNd9TXtXVONOxbQ1W/giphy.gif'
 
 fi # else cancelled
-
+git config --global --add safe.directory '/github/workspace'
 export TAG_VERSION=$(git describe --tag --abbrev=0)
 
 envsubst < /message_template.html > /message.html
