@@ -6,7 +6,8 @@ RUN apt-get update \
     && apt-get install libnet-ssleay-perl -y \
     && apt-get install sendemail -y \
     && apt-get install ca-certificates -y \
-    && apt-get install -y gettext-base
+    && apt-get install -y gettext-base \
+    && apt-get install -y git
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY files/message_template.html /message_template.html
