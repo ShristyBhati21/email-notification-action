@@ -14,6 +14,8 @@ then
 
 fi # else cancelled
 
+export TAG_VERSION=$(git describe --tag --abbrev=0)
+
 envsubst < /message_template.html > /message.html
 
 sendemail -f ${INPUT_FROM_EMAIL} \
