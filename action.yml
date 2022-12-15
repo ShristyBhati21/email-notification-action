@@ -20,6 +20,9 @@ inputs:
   job_status:
     description: 'the success status of the job in the pipeline'
     required: true
+  tag_version:
+    description: 'tag version of the release'
+    required: true
 
 runs:
   using: 'docker'
@@ -31,3 +34,4 @@ runs:
     - ${{ inputs.authorised_username }}
     - ${{ inputs.authorised_password }}
     - ${{ inputs.job_status }}
+    - ${{ inputs.tag_version }}
