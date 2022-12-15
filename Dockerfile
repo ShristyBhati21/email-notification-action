@@ -1,19 +1,20 @@
-# Container image that runs your code
-FROM ubuntu:latest
+# This Dockerfile creates an image used to run the Slack-Notifier
 
-RUN apt-get update \
-    && apt-get install libio-socket-ssl-perl -y \
-    && apt-get install libnet-ssleay-perl -y \
-    && apt-get install sendemail -y \
-    && apt-get install ca-certificates -y \
-    && apt-get install -y gettext-base \
-    && apt-get install -y git
+# cd to dir containing the Dockerfile
+# docker build -f Dockerfile -t ghcr.io/byzgenltd/slack-notifier-action:0.0.1 .
+# docker push ghcr.io/byzgenltd/slack-notifier-action:0.0.1
 
-# Copies your code file from your action repository to the filesystem path `/` of the container
-COPY files/message_template.html /message_template.html
-COPY entrypoint.sh /entrypoint.sh
+FROM alpine:latest
 
-RUN chmod +x /entrypoint.sh
+RUN apk add curl gettext \
+     && apk update \
+     && rm -rf /var/cache/apk/* \
+     && apk add git
 
-# Code file to execute when the docker container starts up (`entrypoint.sh`)
-ENTRYPOINT ["/entrypoint.sh"]
+WORKDIR /
+COPY files/message.json /message.json
+COPY /entrypoint.sh /entrypoint.sh
+
+CMD chmod +x /entrypoint.sh
+
+ENTRYPOINT /entrypoint.sh "${1}" "${2}"
