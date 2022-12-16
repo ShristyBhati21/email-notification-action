@@ -1,15 +1,4 @@
-# In the git workflow environment variables get PREPENDED with INPUT_
-# When running in git workflow, therefore, you only set
-# SLACK_CHANNEL, SLACK_STATUS_EMOJI and DISPLAY_IMAGE_URL
-# When running locally, you can do a test run with
-#
-# docker run -e INPUT_SLACK_CHANNEL="https://hooks.slack.com/DUMMY_URL/DUMMY/DUMMY" \
-#            -e INPUT_JOB_STATUS="success" \
-#            ghcr.io/byzgenltd/slack-notifier-action:0.0.1
-#
-# since the variables set on your local machine will need to replicate how git workflow environment variables would be loaded in.
-
-set -x
+#!/bin/sh -l
 
 echo "SLACK_WEBHOOK: ${INPUT_SLACK_WEBHOOK}"
 echo "JOB_STATUS: ${INPUT_JOB_STATUS}"

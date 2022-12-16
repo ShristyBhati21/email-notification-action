@@ -4,12 +4,11 @@
 # docker build -f Dockerfile -t ghcr.io/byzgenltd/slack-notifier-action:0.0.1 .
 # docker push ghcr.io/byzgenltd/slack-notifier-action:0.0.1
 
-FROM alpine:latest
+FROM ubuntu:latest
 
-RUN apk add curl gettext \
-     && apk update \
-     && rm -rf /var/cache/apk/* \
-     && apk add git
+RUN apt-get install curl gettext \
+     && apt-get update \
+     && aapt-getpk install git
 
 WORKDIR /
 COPY files/message.json /message.json
