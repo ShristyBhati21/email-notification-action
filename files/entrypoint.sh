@@ -3,18 +3,17 @@
 echo "SLACK_WEBHOOK: ${INPUT_SLACK_WEBHOOK}"
 echo "JOB_STATUS: ${INPUT_JOB_STATUS}"
 
-# curl request for the slack webhook webhook: curl POST, headers, data (slack json obj), slack webhook
-if [[ "${INPUT_JOB_STATUS}" == 'success' ]]; then
-  export INPUT_SLACK_STATUS_EMOJI=':white_check_mark::white_check_mark::white_check_mark:'
-  export INPUT_DISPLAY_IMAGE_URL='https://www.gifcen.com/wp-content/uploads/2022/02/congratulations-gif-8.gif'
+if [ "${INPUT_JOB_STATUS}" = 'success' ]
+then
+  export INPUT_DISPLAY_IMAGE_URL='https://media.giphy.com/media/ekwEeLxb7G4DW44YaK/giphy.gif'
 
-elif [[ "${INPUT_JOB_STATUS}" == 'failure' ]]; then
-  export INPUT_SLACK_STATUS_EMOJI=':rotating_light::rotating_light::rotating_light:'
-  export INPUT_DISPLAY_IMAGE_URL='https://c.tenor.com/-kZOB16tELEAAAAC/this-is-fine-fire.gif'
+elif [ "${INPUT_JOB_STATUS}" = 'failure' ]
+then
+  export INPUT_DISPLAY_IMAGE_URL='https://media.giphy.com/media/xUNd9TXtXVONOxbQ1W/giphy.gif'
 
 fi # else cancelled
 
-#Retrieve latest tag version
+#Retrieving latest tag version
 git config --global --add safe.directory '/github/workspace'
 export TAG_VERSION=$(git describe --tag --abbrev=0)
 
