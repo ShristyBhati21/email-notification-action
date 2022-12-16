@@ -6,9 +6,9 @@
 
 FROM ubuntu:latest
 
-RUN apt-get install gettext \
-    && apt-get install curl \
-     && apt-get update \
+RUN apt-get update \
+     && apt-get install gettext \
+     && apt-get install curl \
      && apt-get install git
 
 WORKDIR /
