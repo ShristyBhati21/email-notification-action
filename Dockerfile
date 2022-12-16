@@ -6,7 +6,8 @@
 
 FROM ubuntu:latest
 
-RUN apt-get install curl gettext \
+RUN apt-get install gettext \
+    && apt-get install curl \
      && apt-get update \
      && apt-get install git
 
