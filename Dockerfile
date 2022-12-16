@@ -7,9 +7,9 @@
 FROM ubuntu:latest
 
 RUN apt-get update \
-     && apt-get install gettext \
-     && apt-get install curl \
-     && apt-get install git
+     && apt-get install gettext -y \
+     && apt-get install curl -y \
+     && apt-get install git -y
 
 WORKDIR /
 COPY files/message.json /message.json
