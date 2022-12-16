@@ -8,7 +8,7 @@ FROM ubuntu:latest
 
 RUN apt-get install curl gettext \
      && apt-get update \
-     && aapt-getpk install git
+     && apt-get install git
 
 WORKDIR /
 COPY files/message.json /message.json
